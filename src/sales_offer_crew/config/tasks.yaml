@@ -1,0 +1,41 @@
+fetch_customer_data:
+  description: >
+    Use the Airtable tool to fetch all customer data from the database.
+    Organize the data in a clear format and provide a summary of the customer base.
+  expected_output: >
+    A structured dataset of all customers with their attributes, along with a brief
+    summary of key statistics about the customer base (number of customers, average
+    spend, demographics breakdown, etc.).
+  agent: data_analyst
+
+create_customer_profiles:
+  description: >
+    Analyze the customer data provided and create detailed customer profiles.
+    For each customer, identify their preferences, buying patterns, and opportunities
+    for personalization. Group similar customers into segments if appropriate.
+  expected_output: >
+    Detailed profiles for each customer that highlight their unique characteristics,
+    preferences, and potential opportunities for personalized offers.
+  agent: customer_profiler
+
+generate_personalized_offers:
+  description: >
+    For each customer profile, create a highly personalized sales offer that 
+    addresses their specific needs, preferences, and purchase history. Each offer
+    should include a compelling title, description, discount percentage, recommended 
+    products, expiration date, and a personal message.
+  expected_output: >
+    A collection of personalized sales offers, with one detailed offer per customer. 
+    Each offer should be tailored to the customer's profile and include all required elements.
+  agent: offer_creator
+
+format_offers_for_api:
+  description: >
+    Take the collection of personalized sales offers and format them according to the 
+    SalesOfferCollection Pydantic model specification. Ensure all required fields are 
+    present and properly formatted. Generate appropriate offer codes for each customer.
+    The output must be valid JSON that conforms to the SalesOfferCollection schema.
+  expected_output: >
+    A valid JSON object conforming to the SalesOfferCollection schema, containing all
+    personalized offers properly formatted for API integration.
+  agent: offer_formatter

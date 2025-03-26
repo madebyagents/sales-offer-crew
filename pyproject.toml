@@ -1,0 +1,23 @@
+[project]
+name = "sales_offer_crew"
+version = "0.1.0"
+description = "sales-offer-crew using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.108.0,<1.0.0"
+]
+
+[project.scripts]
+sales_offer_crew = "sales_offer_crew.main:run"
+run_crew = "sales_offer_crew.main:run"
+train = "sales_offer_crew.main:train"
+replay = "sales_offer_crew.main:replay"
+test = "sales_offer_crew.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
