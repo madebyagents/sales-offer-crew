@@ -28,9 +28,7 @@ def run():
         # Run the crew
         result = SalesOfferCrew().crew().kickoff(inputs=inputs)
 
-        # Show where the output file is saved
         print(f"\nSales offers generated successfully!")
-        print(f"Output saved to: sales_offers.json")
 
         return result
     except Exception as e:

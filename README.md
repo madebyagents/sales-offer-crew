@@ -15,9 +15,11 @@ This project uses CrewAI to create a team of AI agents that work together to:
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.10+
 - An Airtable account with customer data
 - Airtable API key
+- Brave Search API key
+- OpenAI API key
 
 ### Installation
 
@@ -25,15 +27,18 @@ This project uses CrewAI to create a team of AI agents that work together to:
 2. Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+crewai install
 ```
 
 3. Set up environment variables:
 
 ```bash
+export MODEL="openai/gpt-4o-mini"
 export AIRTABLE_API_KEY="your_airtable_api_key"
 export AIRTABLE_BASE_ID="your_airtable_base_id"
-export AIRTABLE_TABLE_NAME="your_table_name"  # defaults to "Customers"
+export AIRTABLE_TABLE_NAME="your_table_name"
+export BRAVE_API_KEY="your_brave_api_key"
+export OPENAI_API_KEY="your_openai_api_key"
 ```
 
 ### Expected Airtable Structure
@@ -51,10 +56,8 @@ RecentlyViewedItems, LoyaltyTier, HasSubscription, PaymentMethod, Tags
 Run the crew to generate personalized offers:
 
 ```bash
-python -m src.sales_offer_crew.main
+crewai run
 ```
-
-The output will be saved to `sales_offers.json` in the project directory.
 
 ## Crew Structure
 
@@ -67,9 +70,8 @@ The output will be saved to `sales_offers.json` in the project directory.
 
 ### Tools
 
-1. **Airtable Tool**: Fetches customer data from Airtable
-2. **Product Recommender**: Suggests relevant products based on customer preferences
-3. **Offer Code Generator**: Creates unique offer codes for each customer
+1. **Brave Search Tool**: Searches the web
+2. **Airtable Tool**: Fetches customer data from Airtable
 
 ## Output Format
 
@@ -86,4 +88,4 @@ MIT
 
 ## Contributors
 
-- Your Name
+- https://github.com/tobiaswu
